@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no,email=no,address=no" />
+  <title>VIP Exclusive Rewards</title>
+  <link rel="preload" as="image" href="assets/hero.webp?v=20260916b" imagesrcset="assets/hero.webp?v=20260916b" />
+  <style>
+    :root {
+      --bg-1: #fff2de;
+      --bg-2: #ffd4c2;
+      --bg-3: #ffb4a4;
+      --card: rgba(255,255,255,0.85);
+      --card-strong: rgba(255,248,239,0.95);
+      --text: #6b240c;
+      --text-soft: #8b3b1d;
+      --accent: #ff4f88;
+      --accent-2: #ffb339;
+      --line: rgba(181, 73, 37, 0.14);
+      --shadow: 0 12px 36px rgba(157, 55, 20, 0.14);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.9), transparent 34%),
+        linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 45%, #ffe8d5 100%);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x: hidden;
+    }
+
+    img, video { max-width: 100%; display: block; }
+    a { text-decoration: none; }
+
+    .page {
+      width: min(100%, 620px);
+      margin: 0 auto;
+      padding: 16px 14px 28px;
+    }
+
+    .hero-wrap {
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(166, 76, 32, 0.22);
+      background: #f8c8a6;
+    }
+
+    .hero-wrap::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 42%;
+      background: linear-gradient(to top, rgba(113,34,14,0.06), transparent);
+      pointer-events: none;
+    }
+
+    .hero {
+      width: 100%;
+      height: auto;
+    }
+
+    .section-card {
+      background: var(--card-strong);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px 16px;
+      margin-bottom: 16px;
+    }
+
+    .lead {
+      font-size: 17px;
+      line-height: 1.55;
+      margin: 0;
+      color: var(--text);
+      font-weight: 650;
+    }
+
+    .section-title {
+      margin: 0 0 14px;
+      font-size: 22px;
+      line-height: 1.15;
+      color: var(--text);
+      font-weight: 900;
+      letter-spacing: 0.01em;
+    }
+
+    .rewards-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .reward-item {
+      display: block;
+      padding: 13px 14px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,240,224,0.95));
+      border: 1px solid var(--line);
+      color: var(--text-soft);
+      font-size: 15px;
+      line-height: 1.45;
+      box-shadow: 0 7px 18px rgba(174, 88, 28, 0.07);
+      word-break: break-word;
+    }
+
+    .reward-item strong { color: var(--text); }
+
+    .plan-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ff8d62 0%, #ff5c8e 100%);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.01em;
+      box-shadow: 0 8px 18px rgba(255, 92, 142, 0.22);
+    }
+
+    .plan-line {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .get-mark {
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.45;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .reward-main {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 5px;
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.45;
+      font-weight: 750;
+      text-align: left;
+    }
+
+    .seat-reward {
+      display: inline;
+      color: var(--text);
+    }
+
+    .coin-highlight {
+      display: inline-block;
+      padding: 4px 10px;
+      margin-right: 4px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #fff3bf 0%, #ffd35c 55%, #ffb629 100%);
+      color: #8a3a00;
+      font-size: 15px;
+      font-weight: 950;
+      box-shadow: 0 6px 16px rgba(255, 183, 41, 0.22);
+      border: 1px solid rgba(255, 170, 25, 0.28);
+      white-space: nowrap;
+    }
+
+    .owl-copy {
+      margin: 0 0 14px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(255,238,213,0.96), rgba(255,222,205,0.96));
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: 900;
+      text-align: center;
+      border: 1px solid rgba(209, 111, 64, 0.12);
+    }
+
+    .owl-copy .sub {
+      display: block;
+      margin-top: 4px;
+      font-size: 15px;
+      font-weight: 750;
+      color: var(--text-soft);
+    }
+
+    .owl-frame-card {
+      margin-top: 12px;
+      padding: 14px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,244,233,0.96));
+      border: 1px solid rgba(209, 111, 64, 0.16);
+      box-shadow: 0 10px 20px rgba(168, 79, 34, 0.08);
+    }
+
+    .reward-note {
+      margin: 14px 0 0;
+      padding: 12px 14px;
+      text-align: center;
+      font-size: 15px;
+      line-height: 1.45;
+      color: #7a2600;
+      font-weight: 900;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #fff0a6 0%, #ffd35f 55%, #ffb84a 100%);
+      border: 1px solid rgba(210, 120, 0, 0.22);
+      box-shadow: 0 9px 20px rgba(225, 141, 17, 0.20);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .video-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #ffe6dd 0%, #fff6ed 100%);
+      border: 1px solid rgba(209, 111, 64, 0.16);
+      box-shadow: 0 10px 20px rgba(168, 79, 34, 0.10);
+    }
+
+    .video-shell {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      background: linear-gradient(135deg, #ffcdb4, #ffeede);
+    }
+
+    .video-shell::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(89,26,8,0.08), transparent 50%);
+      pointer-events: none;
+    }
+
+    .preview-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: #ffd8c6;
+    }
+
+    .preview-name {
+      padding: 10px 12px 12px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text);
+      background: rgba(255,255,255,0.52);
+    }
+
+    .footer-copy {
+      margin: 0;
+      text-align: center;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .footer-copy + .footer-copy { margin-top: 6px; }
+
+    .wa-btn {
+      margin-top: 16px;
+      display: inline-flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ff7b73 0%, #ff4f88 100%);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 900;
+      box-shadow: 0 14px 24px rgba(255, 79, 136, 0.28);
+      text-align: center;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .wa-btn:active {
+      transform: scale(0.985);
+      box-shadow: 0 8px 16px rgba(255, 79, 136, 0.22);
+    }
+
+    .wa-icon {
+      flex: 0 0 auto;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    @media (min-width: 520px) {
+      .page { padding: 18px 18px 34px; }
+      .section-card { padding: 20px 18px; }
+      .lead { font-size: 18px; }
+      .reward-item { font-size: 15.5px; }
+      .preview-name { font-size: 14.5px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero-wrap">
+      <img class="hero" src="assets/hero.webp?v=20260916b" alt="VIP Exclusive Rewards" fetchpriority="high" decoding="async" />
+    </section>
+
+    <section class="section-card">
+      <h2 class="section-title">Event Info 🦉</h2>
+      <p class="lead">Subscribe to VIP from <strong>Sept 17–20</strong> and get <strong>extra Coins + an exclusive Owl Seat Frame</strong>!</p>
+    </section>
+
+    <section class="section-card">
+      <h2 class="section-title">Rewards 👇</h2>
+
+      <ul class="rewards-list">
+        <li class="reward-item">
+          <div class="plan-line"><div class="plan-badge">For 1-Week VIP</div></div>
+          <div class="reward-main"><span class="get-mark">→ Get</span><span class="coin-highlight">3,000 Coins</span><span class="seat-reward">+ 1 Owl Seat Frame (15 days)</span></div>
+        </li>
+        <li class="reward-item">
+          <div class="plan-line"><div class="plan-badge">For 1-Month VIP</div></div>
+          <div class="reward-main"><span class="get-mark">→ Get</span><span class="coin-highlight">10,000 Coins</span><span class="seat-reward">+ 1 Owl Seat Frame (15 days)</span></div>
+        </li>
+        <li class="reward-item">
+          <div class="plan-line"><div class="plan-badge">For 3-Month VIP</div></div>
+          <div class="reward-main"><span class="get-mark">→ Get</span><span class="coin-highlight">20,000 Coins</span><span class="seat-reward">+ 1 Owl Seat Frame (15 days)</span></div>
+        </li>
+      </ul>
+
+      <div class="owl-frame-card">
+        <div class="owl-copy">🦉 <strong>Choose 1 of 4 Limited Owl Seat Frames</strong></div>
+        <div class="video-grid">
+        <article class="video-card">
+          <div class="video-shell">
+            <video class="preview-video lazy-video" playsinline muted loop autoplay preload="none" poster="assets/sleeping.jpg?v=20260916a" data-src="assets/sleeping.mp4?v=20260916a"></video>
+          </div>
+          <div class="preview-name">Sleeping</div>
+        </article>
+
+        <article class="video-card">
+          <div class="video-shell">
+            <video class="preview-video lazy-video" playsinline muted loop autoplay preload="none" poster="assets/game.jpg?v=20260916a" data-src="assets/game.mp4?v=20260916a"></video>
+          </div>
+          <div class="preview-name">Game</div>
+        </article>
+
+        <article class="video-card">
+          <div class="video-shell">
+            <video class="preview-video lazy-video" playsinline muted loop autoplay preload="none" poster="assets/reading.jpg?v=20260916a" data-src="assets/reading.mp4?v=20260916a"></video>
+          </div>
+          <div class="preview-name">Reading</div>
+        </article>
+
+        <article class="video-card">
+          <div class="video-shell">
+            <video class="preview-video lazy-video" playsinline muted loop autoplay preload="none" poster="assets/guitar.jpg?v=20260916a" data-src="assets/guitar.mp4?v=20260916a"></video>
+          </div>
+          <div class="preview-name">Guitar</div>
+        </article>
+        </div>
+      </div>
+
+      <p class="reward-note">⏰Rewards sent within 24 hours after the event.</p>
+    </section>
+
+    <section class="section-card">
+      <p class="footer-copy"><strong>Subscribe now. More VIP, more rewards!</strong></p>
+      <a class="wa-btn" href="https://wa.me/8618646390081" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <span class="wa-icon">✦</span>
+        <span>Questions? Tap here to Chat on WhatsApp!</span>
+      </a>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const videos = document.querySelectorAll('.lazy-video');
+      if (!('IntersectionObserver' in window)) {
+        videos.forEach(video => {
+          const src = video.dataset.src;
+          if (src) {
+            video.src = src;
+            video.load();
+          }
+        });
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const video = entry.target;
+          if (!video.src) {
+            video.src = video.dataset.src;
+            video.load();
+          }
+          const playPromise = video.play();
+          if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(() => {});
+          }
+          observer.unobserve(video);
+        });
+      }, { rootMargin: '200px 0px', threshold: 0.1 });
+
+      videos.forEach(video => observer.observe(video));
+    })();
+  </script>
+</body>
+</html>
